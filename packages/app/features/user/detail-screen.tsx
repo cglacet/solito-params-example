@@ -17,7 +17,7 @@ export function UserDetailScreen() {
     (userId: string) => {
       if (userId === TEST_USER_ID) {
         console.log('Is a new User')
-        setIsNew('1')
+        setImmediate(() => setIsNew('1'))
       }
     },
     [setIsNew],
@@ -39,7 +39,7 @@ function ChangeUserButton(props: { onUserChanged: (userId: string) => void }) {
 
   const onPress = useCallback(() => {
     props.onUserChanged(TEST_USER_ID)
-    setUserId(TEST_USER_ID)
+    setImmediate(() => setUserId(TEST_USER_ID))
   }, [props, setUserId])
 
   return (
