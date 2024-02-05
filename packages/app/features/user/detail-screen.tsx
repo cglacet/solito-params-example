@@ -17,7 +17,7 @@ export function UserDetailScreen() {
     (userId: string) => {
       if (userId === TEST_USER_ID) {
         console.log('Is a new User')
-        setIsNew(userId)
+        setIsNew('1')
       }
     },
     [setIsNew],
@@ -26,7 +26,7 @@ export function UserDetailScreen() {
   return (
     <View className="flex-1 items-center justify-center">
       <Text className="mb-4 text-center font-bold">{`User ID: ${userId} ${
-        isNew ? ' (new)' : ''
+        isNew === '1' ? ' (new)' : ''
       }`}</Text>
       <TextLink href="/">👈 Go Home</TextLink>
       <ChangeUserButton onUserChanged={onUserChanged} />
